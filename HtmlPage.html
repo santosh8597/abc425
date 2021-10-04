@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        var data = [];
+        
+        $(document).ready(function () {
+            debugger;
+          
+            $('#txtFisrtName').keypress(function (event) {
+                var keycode = (event.keyCode ? event.keyCode : event.which);
+                if (keycode == '13') {
+                   $('#btnAddFName').click();
+                  
+                }
+
+            });
+
+
+            $('#txtLastName').keypress(function (event) {
+                var keycode = (event.keyCode ? event.keyCode : event.which);
+                if (keycode == '13') {
+                   $('#btnAddLName').click();
+                    //addFisrtName();
+                }
+
+            });
+
+            $('#txtAge').keypress(function (event) {
+                var keycode = (event.keyCode ? event.keyCode : event.which);
+                if (keycode == '13') {
+                    $('#btnAddAge').click();
+
+                }
+
+            });
+        })
+        function addFisrtName()
+        {
+            $("#mymodel").modal("show");
+
+          var fname = $("#txtFisrtName").val().trim();
+            if (fname!="" || fname!= null)
+            {
+                $("#btnAddFName").click(function () {
+                });
+                 alert(fname);
+               
+            }
+          
+        }
+        function addLastName() {
+            var lname = $("#txtLastName").val().trim();
+            if (lname != "" || lname != null) {
+                alert(lname);
+            }
+
+        }
+        function addAge() {
+            debugger;
+            var age =parseInt($("#txtAge").val());
+            //if (age != "" || age != null) {
+            //    $.confirm({
+            //        title: 'Alert',
+            //        theme: 'Modern',
+            //        content: 'age',
+            //        buttons: {
+            //            Ok: function () {
+            //                return;
+            //            },
+            //        }
+            //    });
+            //    return
+            //}
+            alert(age);
+        }
+       
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="col-md-12" style="padding: 10px;">
+                    <form class="row form-inline">
+                        <div class="col-md-3">
+                            <label class="control-label">FirstName</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control" type="text" id="txtFisrtName"/>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="button" value=">" class="btn btn-success" id="btnAddFName" onclick="addFisrtName()" data-target="#mymodel" data-toggle="modal" />
+                        </div>
+                    </form>
+                    
+                </div>
+                <div class="col-md-12" style="padding: 10px;">
+                    <form class="row form-inline">
+                        <div class="col-md-3">
+                            <label class="control-label">LastName</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control" type="text" id="txtLastName" />
+                        </div>
+                        <div class="col-md-3">
+                            <input type="button" value=">" class="btn btn-success" id="btnAddLName" onclick="addLastName()" />
+                        </div>
+                    </form>
+
+                </div>
+                <div class="col-md-12" style="padding: 10px;">
+                    <form class="row form-inline">
+                        <div class="col-md-3">
+                            <label class="control-label">Age</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control" type="text" id="txtAge" />
+                        </div>
+                        <div class="col-md-3">
+                            <input type="button" value=">" class="btn btn-success" id="btnAddAge" onclick="addAge()" />
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="mymodel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:#808080;color:white">
+                    <button type="button" class="close" data-dismiss="modal" style="color:red">&times;</button>
+                    <h2 style="text-align:center">Courses</h2>
+                </div>
+                <div class="modal-body">
+                    <h1>welcome</h1>
+                </div>
+                <div class="modal-footer" style="background-color:#f0f0f0">
+                    <button type="reset" class="btn  btn-sm" id="btn_submit" data-dismiss="modal" style="background-color:#847d7d;color:white">Cancel</button>
+                    <button type="submit" class="btn btn-primary btn-sm" id="btn_submit">Add</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

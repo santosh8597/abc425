@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <title></title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".js-example-programm").select2({ placeholder: "Select a Product" });
+        });
+        var availableTags = [];
+      
+        $(function () {
+            $.ajax({
+                url: 'https://jsonplaceholder.typicode.com/todos',
+                method: 'get',
+                contentType: 'application/json',
+                success: function (resp) {
+                    console.log(resp);
+                    //$(".autocomplete").autocomplete({
+                    //    source: resp.state_name
+                    //});
+
+                    $.each(resp, function (i, d) {
+                        $("#ddselect").append("<option value=" + d.userId + ">" + d.title+ "</option>")
+
+                        availableTags.push(d.state_name);
+                    })
+                }
+            })
+            //$(".autocomplete").autocomplete({
+            //    source: availableTags
+            //});
+
+        });
+    </script>
+</head>
+
+
+
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <!--<select multiple style="width: 300px" class="js-example-programmatic">
+                <option value="Alice Mutton">Alice Mutton</option>
+                <option value="Aniseed Syrup">Aniseed Syrup</option>
+                <option value="Boston Crab Meat">Boston Crab Meat</option>
+                <option value="Camembert Pierrot">Camembert Pierrot</option>
+                <option value="Carnarvon Tigers">Carnarvon Tigers</option>
+                <option value="Chai">Chai</option>
+                <option value="Chang">Chang</option>
+                <option value="Chartreuse verte">Chartreuse verte</option>
+            </select>-->
+            <select multiple style="width:700px" id="ddselect" class="js-example-programm"></select>
+        </div>
+    </form>
+</body>
+</html>
